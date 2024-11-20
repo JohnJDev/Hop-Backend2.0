@@ -36,10 +36,6 @@ const connect = async() => {
     }
 };
 
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(cors(corsOptions));
-app.use(cookieParser());
 app.use(helmet()); // Usa helmet para configurar las cabeceras de seguridad
 app.use(helmet.contentSecurityPolicy({
     directives: {
@@ -47,6 +43,11 @@ app.use(helmet.contentSecurityPolicy({
         fontSrc: ["'self'", "https://hop-backend-production.up.railway.app"]
     }
 }));
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(cors(corsOptions));
+app.use(cookieParser());
+
 
 app.use(express.static('assets'));
 app.use(express.static(process.cwd()+"\\build"));
