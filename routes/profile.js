@@ -1,6 +1,6 @@
 import express from 'express'
 const Router=express.Router()
-import { sendVerifyCode ,verifyPhoneNumber} from '../Controllers/phoneVerify.js'
+import { sendVerifyCode ,verifyPhoneNumber} from '../controllers/phoneVerify.js'
 import {downLoad,upLoad} from '../controllers/fileController.js'
 import multer from "multer"
 import { verifyUser } from '../utils/verifyToken.js'
