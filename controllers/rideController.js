@@ -72,6 +72,42 @@ export const getRide = async(req,res) =>{
     }
 }
 
+export const getFeaturedRide = async (req, res) => {
+    try {
+        const rides = await Ride.find({ featured: true }).limit(8);
+
+        res.status(200).json({ success: true, message: 'Successful', data: rides });
+    } catch (err) {
+        console.log(err);
+        res.status(404).json({ success: false, message: 'Not found' });
+    }
+};
+   
+export const getRideCount = async (req, res) => {
+    try {
+        const rideCount = await Ride.estimatedDocumentCount();
+
+        res.status(200).json({ success: true, data: rideCount });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ success: false, message: 'Failed to fetch' });
+    }
+};
+
+export const getAllRides = async (req, res) => {
+    console.log('Controlador getAllRides ejecutado');
+    try {
+      const rides = await Ride.find();
+      console.log('Datos encontrados:', rides);
+      res.status(200).json(rides);
+    } catch (error) {
+      console.error('Error en getAllRides:', error.message);
+      res.status(500).json({ message: 'Error al obtener los viajes' });
+    }
+  };
+  
+  
+
 export const getDriverRides=async(req,res)=>{
     const {id}=req.query
     const user=await User.findById(id)
