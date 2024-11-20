@@ -1,8 +1,8 @@
 import express from 'express'
-import { login, register , logout } from '../Controllers/authController.js'
+import { login, register , logout } from '../controllers/authController.js'
 // import bcrypt from 'bcryptjs'
 // import jwt from 'jsonwebtoken'
-import {sendVerifyCode, verifyEmail} from '../Controllers/emailVerify.js'
+import {sendVerifyCode, verifyEmail} from '../controllers/emailVerify.js'
 const router = express.Router()
 
 router.post('/register', register)

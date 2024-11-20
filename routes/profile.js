@@ -1,7 +1,7 @@
 import express from 'express'
 const Router=express.Router()
 import { sendVerifyCode ,verifyPhoneNumber} from '../Controllers/phoneVerify.js'
-import {downLoad,upLoad} from '../Controllers/fileController.js'
+import {downLoad,upLoad} from '../controllers/fileController.js'
 import multer from "multer"
 import { verifyUser } from '../utils/verifyToken.js'
 const upload = multer({ dest: 'assets/' });
